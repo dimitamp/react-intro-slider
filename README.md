@@ -20,13 +20,13 @@ npm i react-intro-slider --save
 
 Name                  | Type       | Default                   | Description
 ----------------------|------------|---------------------------|--------------
-size                  | `string`   | `small`                   | Size of slider. Possible values: "small", "medium","large","fullscreen"
+size                  | `string`   | `small`                   | Size of slider. Possible values: `small`, `medium`,`large`,`fullscreen`
 titleStyle            | `string`   | `null`                    | Styling for slide title
 imageStyle            | `string`   | `null`                    | Styling for slide image
 descriptionStyle      | `string`   | `null`                    | Styling for slide description
 skipButtonStyle       | `style`    | `null`                    | Styling for skip button
 nextButtonStyle       | `style`    | `null`                    | Styling for next button
-controllerOrientation | `string`   | `vertical`                | Orientation of the control buttons. Possible values: "vertical","horizontal"
+controllerOrientation | `string`   | `vertical`                | Orientation of the control buttons. Possible values: `vertical`,`horizontal`
 controllerIconStyle   | `style`    | `null`                    | Style of pagination dots
 
 
