@@ -9,12 +9,18 @@ const Slide = props => {
     description,
     imageStyle,
     titleStyle,
-    descriptionStyle
+    descriptionStyle,
+    active
   } = props;
   return (
-    <div className="slide" style={{ background }}>
-      <div className="slide-title" style={titleStyle}>
-        {title}
+    <div
+      className={`slide ${active ? "slide-active" : "slide-inactive"}`}
+      style={{ background }}
+    >
+      <div className="slide-title-container">
+        <div className="slide-title" style={titleStyle}>
+          {title}
+        </div>
       </div>
       <div className="slide-image-container">
         <img
@@ -24,9 +30,10 @@ const Slide = props => {
           style={imageStyle}
         />
       </div>
-
-      <div className="slide-description" style={descriptionStyle}>
-        {description}
+      <div className="slide-description-container">
+        <div className="slide-description" style={descriptionStyle}>
+          {description}
+        </div>
       </div>
     </div>
   );
@@ -39,7 +46,8 @@ Slide.propTypes = {
   titleStyle: PropTypes.object,
   description: PropTypes.string,
   imageStyle: PropTypes.object,
-  background: PropTypes.string
+  background: PropTypes.string,
+  active: PropTypes.bool
 };
 
 Slide.defaultProps = {
@@ -49,7 +57,8 @@ Slide.defaultProps = {
   titleStyle: {},
   description: "Description",
   imageStyle: {},
-  background: "#ffeace"
+  background: "#ffeace",
+  active: false
 };
 
 export default Slide;

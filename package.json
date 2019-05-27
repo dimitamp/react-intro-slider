@@ -1,12 +1,12 @@
 {
   "name": "react-intro-slider",
-  "version": "1.0.0",
-  "description": "Simple and configurable app introduction slider for react",
-  "main": "dist/index.js",
+  "version": "1.0.6",
+  "description": "`Simple and configurable app introduction slider for react`",
+  "main": "dist/IntroSlider.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack-dev-server --mode development",
-    "transpile": "babel src -d dist",
+    "transpile": "babel src -d dist --copy-files",
     "prepublishOnly": "npm run transpile"
   },
   "repository": {
@@ -54,6 +54,7 @@
     "eslint-plugin-react": "^7.13.0",
     "html-webpack-plugin": "^3.2.0",
     "prettier": "^1.17.1",
+    "sass-loader": "^7.1.0",
     "style-loader": "^0.23.1",
     "webpack": "^4.32.2",
     "webpack-cli": "^3.3.2",

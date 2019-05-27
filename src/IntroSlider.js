@@ -12,6 +12,7 @@ export default class IntroSlider extends React.Component {
     this.nextSlide = this.nextSlide.bind(this);
     this.handleLeftSwipe = this.handleLeftSwipe.bind(this);
     this.handleRightSwipe = this.handleRightSwipe.bind(this);
+    this.skipSlider = this.skipSlider.bind(this);
   }
 
   handleLeftSwipe() {
@@ -44,20 +45,32 @@ export default class IntroSlider extends React.Component {
     }
   }
 
+  skipSlider() {
+    const { handleDone } = this.props;
+    handleDone();
+  }
+
   render() {
     const {
       slides: sl,
       imageStyle,
       titleStyle,
       descriptionStyle,
-      button,
+      nextButton,
+      skipButton,
+      skipButtonStyle,
+      nextButtonStyle,
+      controllerOrientation,
+      controllerIconStyle,
       size
     } = this.props;
+    const containerSize = window.innerWidth < 500 ? "fullscreen" : size;
     const { activeSlide } = this.state;
-    const slides = sl.map(slide => {
+    const slides = sl.map((slide, index) => {
       const { title, description, image, background } = slide;
       return (
         <Slide
+          active={index === activeSlide}
           key={title}
           title={title}
           description={description}
@@ -74,13 +87,19 @@ export default class IntroSlider extends React.Component {
         onSwipedLeft={this.handleLeftSwipe}
         onSwipedRight={this.handleRightSwipe}
       >
-        <div className={`slides-container ${size}`}>
-          {slides[activeSlide]}
+        <div className={`slides-container ${containerSize}`}>
+          {slides}
           <Controller
             slides={slides.length}
             activeSlide={activeSlide}
-            button={button}
+            nextButton={nextButton}
+            skipButton={skipButton}
+            skipButtonStyle={skipButtonStyle}
+            nextButtonStyle={nextButtonStyle}
             nextSlide={this.nextSlide}
+            skipSlider={this.skipSlider}
+            orientation={controllerOrientation}
+            controllerIconStyle={controllerIconStyle}
           />
         </div>
       </Swipeable>
@@ -94,15 +113,16 @@ IntroSlider.propTypes = {
   imageStyle: PropTypes.object,
   slides: PropTypes.array,
   size: PropTypes.string,
-  button: PropTypes.bool,
-  handleDone: PropTypes.func.isRequired
+  nextButton: PropTypes.bool,
+  skipButton: PropTypes.bool,
+  handleDone: PropTypes.func.isRequired,
+  skipButtonStyle: PropTypes.object,
+  nextButtonStyle: PropTypes.object,
+  controllerOrientation: PropTypes.string,
+  controllerIconStyle: PropTypes.object
 };
 
 IntroSlider.defaultProps = {
   size: "small",
-  slides: [],
-  descriptionStyle: {},
-  titleStyle: {},
-  imageStyle: {},
-  button: true
+  slides: []
 };
