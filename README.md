@@ -7,7 +7,7 @@ npm i react-intro-slider --save
 ```
 | | |
 |-|-|
-![Slider With Vertical Controller gif](images/Vertical-Controller.gif) | ![Slider with Horizontal Controller gif](images/Horizontal-Control.gif)
+![Slider With Vertical Controller gif](images/Vertical-Controller.gif) | ![Slider with Horizontal Controller gif](images/Horizontal-Controller.gif)
 
 ## Table of contents
   * [Props and options](#props-and-options)
