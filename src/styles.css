@@ -40,6 +40,7 @@
 }
 
 .slide-title {
+  text-align: center;
   font-size: 2rem;
   color: #000000;
 }
@@ -65,6 +66,7 @@
 
 .slide-description {
   font-size: 1.6rem;
+  text-align: center;
   color: #000000;
 }
 
