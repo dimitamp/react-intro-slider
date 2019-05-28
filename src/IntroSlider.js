@@ -157,7 +157,7 @@ IntroSlider.propTypes = {
   handleClose: PropTypes.func.isRequired,
   closeOnOverlayClick: PropTypes.bool,
   controllerIconActiveStyle: PropTypes.object,
-  controllerIconInctiveStyle: PropTypes.object
+  controllerIconInactiveStyle: PropTypes.object
 };
 
 IntroSlider.defaultProps = {
