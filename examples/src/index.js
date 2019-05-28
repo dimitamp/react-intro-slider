@@ -9,6 +9,14 @@ class App extends React.Component {
     this.handleDone = this.handleDone.bind(this);
   }
 
+  componentDidMount() {
+    document.addEventListener("click", this.documentClicked, false);
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener("click", this.documentClicked, false);
+  }
+
   handleDone() {
     this.setState({ walkthroughIsOpen: false });
   }
@@ -30,10 +38,24 @@ class App extends React.Component {
         description: "You finished the walkthrough"
       }
     ];
+    const customIcon = (
+      <div
+        style={{
+          width: "1rem",
+          height: "1rem",
+          backgroundColor: "white"
+        }}
+      />
+    );
     return (
       <React.Fragment>
         {walkthroughIsOpen && (
-          <IntroSlider slides={slides} handleDone={this.handleDone} />
+          <IntroSlider
+            slides={slides}
+            customControllerIcon={customIcon}
+            handleDone={this.handleDone}
+            handleClose={this.handleDone}
+          />
         )}
         <div
           className="example-view"

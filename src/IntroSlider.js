@@ -9,10 +9,20 @@ export default class IntroSlider extends React.Component {
   constructor(props) {
     super(props);
     this.state = { activeSlide: 0 };
+    this.sliderRef = React.createRef();
     this.nextSlide = this.nextSlide.bind(this);
     this.handleLeftSwipe = this.handleLeftSwipe.bind(this);
     this.handleRightSwipe = this.handleRightSwipe.bind(this);
     this.skipSlider = this.skipSlider.bind(this);
+    this.documentClicked = this.documentClicked.bind(this);
+  }
+
+  componentDidMount() {
+    document.addEventListener("click", this.documentClicked, false);
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener("click", this.documentClicked, false);
   }
 
   handleLeftSwipe() {
@@ -46,8 +56,19 @@ export default class IntroSlider extends React.Component {
   }
 
   skipSlider() {
-    const { handleDone } = this.props;
-    handleDone();
+    const { handleClose } = this.props;
+    handleClose();
+  }
+
+  documentClicked(e) {
+    const { handleClose, closeOnOverlayClick } = this.props;
+    if (
+      e.target === this.sliderRef.current ||
+      this.sliderRef.current.contains(e.target) ||
+      !closeOnOverlayClick
+    )
+      return;
+    handleClose();
   }
 
   render() {
@@ -61,7 +82,10 @@ export default class IntroSlider extends React.Component {
       skipButtonStyle,
       nextButtonStyle,
       controllerOrientation,
-      controllerIconStyle,
+      controllerIconActiveStyle,
+      controllerIconInactiveStyle,
+      sliderOverlayStyle,
+      sliderStyle,
       size
     } = this.props;
     const containerSize = window.innerWidth < 500 ? "fullscreen" : size;
@@ -87,20 +111,29 @@ export default class IntroSlider extends React.Component {
         onSwipedLeft={this.handleLeftSwipe}
         onSwipedRight={this.handleRightSwipe}
       >
-        <div className={`slides-container ${containerSize}`}>
-          {slides}
-          <Controller
-            slides={slides.length}
-            activeSlide={activeSlide}
-            nextButton={nextButton}
-            skipButton={skipButton}
-            skipButtonStyle={skipButtonStyle}
-            nextButtonStyle={nextButtonStyle}
-            nextSlide={this.nextSlide}
-            skipSlider={this.skipSlider}
-            orientation={controllerOrientation}
-            controllerIconStyle={controllerIconStyle}
-          />
+        <div className="slider-overlay" style={sliderOverlayStyle}>
+          <div className="slider-container">
+            <div
+              className={`slider ${containerSize}`}
+              style={sliderStyle}
+              ref={this.sliderRef}
+            >
+              {slides}
+              <Controller
+                slides={slides.length}
+                activeSlide={activeSlide}
+                nextButton={nextButton}
+                skipButton={skipButton}
+                skipButtonStyle={skipButtonStyle}
+                nextButtonStyle={nextButtonStyle}
+                nextSlide={this.nextSlide}
+                skipSlider={this.skipSlider}
+                orientation={controllerOrientation}
+                controllerIconActiveStyle={controllerIconActiveStyle}
+                controllerIconInactiveStyle={controllerIconInactiveStyle}
+              />
+            </div>
+          </div>
         </div>
       </Swipeable>
     );
@@ -119,10 +152,18 @@ IntroSlider.propTypes = {
   skipButtonStyle: PropTypes.object,
   nextButtonStyle: PropTypes.object,
   controllerOrientation: PropTypes.string,
-  controllerIconStyle: PropTypes.object
+  sliderOverlayStyle: PropTypes.object,
+  sliderStyle: PropTypes.object,
+  handleClose: PropTypes.func.isRequired,
+  closeOnOverlayClick: PropTypes.bool,
+  controllerIconActiveStyle: PropTypes.object,
+  controllerIconInctiveStyle: PropTypes.object
 };
 
 IntroSlider.defaultProps = {
   size: "small",
-  slides: []
+  slides: [],
+  sliderOverlayStyle: null,
+  sliderStyle: null,
+  closeOnOverlayClick: true
 };

@@ -5,7 +5,8 @@ const Controller = props => {
   const {
     activeSlide,
     slides,
-    controllerIconStyle,
+    controllerIconActiveStyle,
+    controllerIconInactiveStyle,
     nextButton,
     nextButtonStyle,
     nextSlide,
@@ -17,13 +18,19 @@ const Controller = props => {
   const controllerIcons = [];
   for (let i = 0; i < slides; i += 1) {
     controllerIcons.push(
-      <div
-        key={i}
-        style={controllerIconStyle}
-        className={`bullet ${
-          activeSlide === i ? "bullet-active" : "bullet-inactive"
-        }`}
-      />
+      activeSlide === i ? (
+        <div
+          key={i}
+          style={controllerIconActiveStyle}
+          className="bullet bullet-active"
+        />
+      ) : (
+        <div
+          key={i}
+          style={controllerIconInactiveStyle}
+          className="bullet bullet-inactive"
+        />
+      )
     );
   }
   let buttonText = "NEXT";
@@ -100,7 +107,8 @@ Controller.propTypes = {
   skipButtonStyle: PropTypes.object,
   nextButtonStyle: PropTypes.object,
   orientation: PropTypes.string,
-  controllerIconStyle: PropTypes.object
+  controllerIconActiveStyle: PropTypes.object,
+  controllerIconInactiveStyle: PropTypes.object
 };
 
 Controller.defaultProps = {
@@ -108,10 +116,11 @@ Controller.defaultProps = {
   slides: [],
   nextButton: true,
   skipButton: false,
-  skipButtonStyle: {},
-  nextButtonStyle: {},
+  skipButtonStyle: null,
+  nextButtonStyle: null,
   orientation: "vertical",
-  controllerIconStyle: {}
+  controllerIconActiveStyle: null,
+  controllerIconInactiveStyle: null
 };
 
 export default Controller;

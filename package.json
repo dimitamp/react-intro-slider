@@ -1,6 +1,6 @@
 {
   "name": "react-intro-slider",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "`Simple and configurable app introduction slider for react`",
   "main": "dist/IntroSlider.js",
   "scripts": {
@@ -53,6 +53,7 @@
     "eslint-plugin-prettier": "^3.1.0",
     "eslint-plugin-react": "^7.13.0",
     "html-webpack-plugin": "^3.2.0",
+    "mini-css-extract-plugin": "^0.7.0",
     "prettier": "^1.17.1",
     "sass-loader": "^7.1.0",
     "style-loader": "^0.23.1",
