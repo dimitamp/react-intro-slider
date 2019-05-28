@@ -52,7 +52,7 @@ You can run the example Expo-app by cloning the repo:
 
 ```sh
 git clone https://github.com/dimitamp/react-intro-slider.git
-cd react-native-intro-slider 
+cd react-intro-slider 
 npm install
 npm start 
 ```
