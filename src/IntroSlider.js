@@ -93,29 +93,27 @@ const IntroSlider = ({
         onSwipedLeft={handleLeftSwipe}
         onSwipedRight={handleRightSwipe}
       >
-        <div className="ris">
-          <div className="slider-overlay" style={sliderOverlayStyle}>
-            <div className="slider-container">
-              <div
-                className={`slider ${containerSize}`}
-                style={sliderStyle}
-                ref={sliderRef}
-              >
-                {renderedSlides}
-                <Controller
-                  slides={slides.length}
-                  activeSlide={activeSlide}
-                  nextButton={nextButton}
-                  skipButton={skipButton}
-                  skipButtonStyle={skipButtonStyle}
-                  nextButtonStyle={nextButtonStyle}
-                  nextSlide={nextSlide}
-                  skipSlider={handleClose}
-                  orientation={controllerOrientation}
-                  controllerIconActiveStyle={controllerIconActiveStyle}
-                  controllerIconInactiveStyle={controllerIconInactiveStyle}
-                />
-              </div>
+        <div className="ris-slider-overlay" style={sliderOverlayStyle}>
+          <div className="ris-slider-container">
+            <div
+              className={`ris-slider ris-${containerSize}`}
+              style={sliderStyle}
+              ref={sliderRef}
+            >
+              {renderedSlides}
+              <Controller
+                slides={slides.length}
+                activeSlide={activeSlide}
+                nextButton={nextButton}
+                skipButton={skipButton}
+                skipButtonStyle={skipButtonStyle}
+                nextButtonStyle={nextButtonStyle}
+                nextSlide={nextSlide}
+                skipSlider={handleClose}
+                orientation={controllerOrientation}
+                controllerIconActiveStyle={controllerIconActiveStyle}
+                controllerIconInactiveStyle={controllerIconInactiveStyle}
+              />
             </div>
           </div>
         </div>
