@@ -10,6 +10,7 @@
     "transpile": "babel src -d dist --copy-files",
     "prepublishOnly": "npm run transpile"
   },
+  "typings": "dist/IntroSlider.d.ts",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/dimitamp/react-intro-slider.git"
