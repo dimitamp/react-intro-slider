@@ -22,13 +22,13 @@ const Controller = props => {
         <div
           key={i}
           style={controllerIconActiveStyle}
-          className="bullet bullet-active"
+          className="ris-bullet ris-bullet-active"
         />
       ) : (
         <div
           key={i}
           style={controllerIconInactiveStyle}
-          className="bullet bullet-inactive"
+          className="ris-bullet ris-bullet-inactive"
         />
       )
     );
@@ -39,12 +39,12 @@ const Controller = props => {
   }
   const renderVerticalController = () => {
     return (
-      <div className="controller-container controller-vertical">
-        <div className="slide-icons-container">{controllerIcons}</div>
+      <div className="ris-controller-container ris-controller-vertical">
+        <div className="ris-slide-icons-container">{controllerIcons}</div>
         {nextButton && (
           <button
             type="button"
-            className="control-button button-vertical"
+            className="ris-control-button ris-button-vertical"
             onClick={nextSlide}
             style={nextButtonStyle}
           >
@@ -54,7 +54,7 @@ const Controller = props => {
         {skipButton && (
           <button
             type="button"
-            className="control-button button-vertical"
+            className="ris-control-button ris-button-vertical"
             onClick={skipSlider}
             style={skipButtonStyle}
           >
@@ -66,12 +66,12 @@ const Controller = props => {
   };
   const renderHorizontalController = () => {
     return (
-      <div className="controller-container controller-horizontal">
-        <div className="slide-icons-container">{controllerIcons}</div>
+      <div className="ris-controller-container ris-controller-horizontal">
+        <div className="ris-slide-icons-container">{controllerIcons}</div>
         {skipButton && (
           <button
             type="button"
-            className="control-button button-horizontal"
+            className="ris-control-button ris-button-horizontal"
             onClick={skipSlider}
             style={skipButtonStyle}
           >
@@ -81,7 +81,7 @@ const Controller = props => {
         {nextButton && (
           <button
             type="button"
-            className="control-button button-horizontal"
+            className="ris-control-button ris-button-horizontal"
             onClick={nextSlide}
             style={nextButtonStyle}
           >

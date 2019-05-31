@@ -14,24 +14,26 @@ const Slide = props => {
   } = props;
   return (
     <div
-      className={`slide ${active ? "slide-active" : "slide-inactive"}`}
+      className={`ris-slide ${
+        active ? "ris-slide-active" : "ris-slide-inactive"
+      }`}
       style={{ background }}
     >
-      <div className="slide-title-container">
-        <div className="slide-title" style={titleStyle}>
+      <div className="ris-slide-title-container">
+        <div className="ris-slide-title" style={titleStyle}>
           {title}
         </div>
       </div>
-      <div className="slide-image-container">
+      <div className="ris-slide-image-container">
         <img
-          className="slide-image"
+          className="ris-slide-image"
           alt="slide"
           src={image}
           style={imageStyle}
         />
       </div>
-      <div className="slide-description-container">
-        <div className="slide-description" style={descriptionStyle}>
+      <div className="ris-slide-description-container">
+        <div className="ris-slide-description" style={descriptionStyle}>
           {description}
         </div>
       </div>
