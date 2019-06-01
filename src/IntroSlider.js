@@ -23,6 +23,9 @@ const IntroSlider = ({
   sliderStyle,
   handleClose,
   handleDone,
+  nextLabel,
+  skipLabel,
+  doneLabel,
   size
 }) => {
   const [activeSlide, useActiveSlide] = useState(0);
@@ -113,6 +116,9 @@ const IntroSlider = ({
                 orientation={controllerOrientation}
                 controllerIconActiveStyle={controllerIconActiveStyle}
                 controllerIconInactiveStyle={controllerIconInactiveStyle}
+                nextLabel={nextLabel}
+                doneLabel={doneLabel}
+                skipLabel={skipLabel}
               />
             </div>
           </div>
@@ -140,7 +146,10 @@ IntroSlider.propTypes = {
   handleClose: PropTypes.func.isRequired,
   closeOnOverlayClick: PropTypes.bool,
   controllerIconActiveStyle: PropTypes.object,
-  controllerIconInactiveStyle: PropTypes.object
+  controllerIconInactiveStyle: PropTypes.object,
+  nextLabel: PropTypes.string,
+  skipLabel: PropTypes.string,
+  doneLabel: PropTypes.string
 };
 
 IntroSlider.defaultProps = {

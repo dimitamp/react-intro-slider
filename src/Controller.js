@@ -13,9 +13,15 @@ const Controller = props => {
     skipSlider,
     skipButton,
     skipButtonStyle,
-    orientation
+    orientation,
+    nextLabel,
+    skipLabel,
+    doneLabel
   } = props;
   const controllerIcons = [];
+  const nextDefaultLabel =
+    activeSlide === slides - 1 ? doneLabel || "DONE" : "NEXT";
+  const skipDefaultLabel = "SKIP";
   for (let i = 0; i < slides; i += 1) {
     controllerIcons.push(
       activeSlide === i ? (
@@ -33,10 +39,6 @@ const Controller = props => {
       )
     );
   }
-  let buttonText = "NEXT";
-  if (activeSlide === slides - 1) {
-    buttonText = "DONE";
-  }
   const renderVerticalController = () => {
     return (
       <div className="ris-controller-container ris-controller-vertical">
@@ -48,7 +50,7 @@ const Controller = props => {
             onClick={nextSlide}
             style={nextButtonStyle}
           >
-            {buttonText}
+            {nextLabel || nextDefaultLabel}
           </button>
         )}
         {skipButton && (
@@ -58,7 +60,7 @@ const Controller = props => {
             onClick={skipSlider}
             style={skipButtonStyle}
           >
-            SKIP
+            {skipLabel || skipDefaultLabel}
           </button>
         )}
       </div>
@@ -108,7 +110,10 @@ Controller.propTypes = {
   nextButtonStyle: PropTypes.object,
   orientation: PropTypes.string,
   controllerIconActiveStyle: PropTypes.object,
-  controllerIconInactiveStyle: PropTypes.object
+  controllerIconInactiveStyle: PropTypes.object,
+  skilLabel: PropTypes.string,
+  nextLabel: PropTypes.string,
+  doneLabel: PropTypes.string
 };
 
 Controller.defaultProps = {
