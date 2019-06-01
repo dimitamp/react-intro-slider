@@ -121,7 +121,7 @@
 .ris-controller-vertical {
   flex-direction: column;
   justify-content: space-between;
-  align-items: center;
+  align-items: stretch;
 }
 
 .ris-controller-horizontal {
