@@ -133,6 +133,7 @@
 .ris-slide-icons-container {
   display: flex;
   justify-content: center;
+  width: 100%;
 }
 
 .ris-bullet-active {
