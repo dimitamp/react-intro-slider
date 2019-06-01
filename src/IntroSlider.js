@@ -26,6 +26,8 @@ const IntroSlider = ({
   nextLabel,
   skipLabel,
   doneLabel,
+  controllerIconActive,
+  controllerIconInactive,
   size
 }) => {
   const [activeSlide, useActiveSlide] = useState(0);
@@ -119,6 +121,8 @@ const IntroSlider = ({
                 nextLabel={nextLabel}
                 doneLabel={doneLabel}
                 skipLabel={skipLabel}
+                controllerIconActive={controllerIconActive}
+                controllerIconInactive={controllerIconInactive}
               />
             </div>
           </div>
@@ -149,7 +153,9 @@ IntroSlider.propTypes = {
   controllerIconInactiveStyle: PropTypes.object,
   nextLabel: PropTypes.string,
   skipLabel: PropTypes.string,
-  doneLabel: PropTypes.string
+  doneLabel: PropTypes.string,
+  controllerIconActive: PropTypes.node,
+  contollerIconInactive: PropTypes.node
 };
 
 IntroSlider.defaultProps = {

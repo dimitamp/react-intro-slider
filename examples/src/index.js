@@ -31,7 +31,6 @@ const App = () => {
       description: "More features will be added!"
     }
   ];
-
   return (
     <React.Fragment>
       <IntroSlider

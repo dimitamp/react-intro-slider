@@ -16,28 +16,36 @@ const Controller = props => {
     orientation,
     nextLabel,
     skipLabel,
-    doneLabel
+    doneLabel,
+    controllerIconActive,
+    controllerIconInactive
   } = props;
   const controllerIcons = [];
   const nextDefaultLabel =
     activeSlide === slides - 1 ? doneLabel || "DONE" : "NEXT";
   const skipDefaultLabel = "SKIP";
   for (let i = 0; i < slides; i += 1) {
-    controllerIcons.push(
-      activeSlide === i ? (
-        <div
-          key={i}
-          style={controllerIconActiveStyle}
-          className="ris-bullet ris-bullet-active"
-        />
-      ) : (
-        <div
-          key={i}
-          style={controllerIconInactiveStyle}
-          className="ris-bullet ris-bullet-inactive"
-        />
-      )
-    );
+    if (activeSlide === i) {
+      controllerIcons.push(
+        controllerIconActive || (
+          <div
+            key={i}
+            style={controllerIconActiveStyle}
+            className="ris-bullet ris-bullet-active"
+          />
+        )
+      );
+    } else {
+      controllerIcons.push(
+        controllerIconInactive || (
+          <div
+            key={i}
+            style={controllerIconInactiveStyle}
+            className="ris-bullet ris-bullet-inactive"
+          />
+        )
+      );
+    }
   }
   const renderVerticalController = () => {
     return (
@@ -77,7 +85,7 @@ const Controller = props => {
             onClick={skipSlider}
             style={skipButtonStyle}
           >
-            SKIP
+            {skipLabel || skipDefaultLabel}
           </button>
         )}
         {nextButton && (
@@ -87,7 +95,7 @@ const Controller = props => {
             onClick={nextSlide}
             style={nextButtonStyle}
           >
-            {buttonText}
+            {nextLabel || nextDefaultLabel}
           </button>
         )}
       </div>
@@ -113,7 +121,9 @@ Controller.propTypes = {
   controllerIconInactiveStyle: PropTypes.object,
   skilLabel: PropTypes.string,
   nextLabel: PropTypes.string,
-  doneLabel: PropTypes.string
+  doneLabel: PropTypes.string,
+  controllerIconActive: PropTypes.node,
+  controllerIconInactive: PropTypes.node
 };
 
 Controller.defaultProps = {
