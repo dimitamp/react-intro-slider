@@ -173,7 +173,7 @@ IntroSlider.defaultProps = {
   skipButton: false,
   skipButtonStyle: null,
   nextButtonStyle: null,
-  orientation: "vertical",
+  controllerOrientation: "vertical",
   controllerIconActiveStyle: null,
   controllerIconInactiveStyle: null,
   descriptionStyle: null,

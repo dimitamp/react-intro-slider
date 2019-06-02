@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { render } from "react-dom";
-import IntroSlider from "../../dist/IntroSlider";
+import IntroSlider from "../../src/IntroSlider";
 
 const App = () => {
   const [sliderIsOpen, setSliderIsOpen] = useState(true);
