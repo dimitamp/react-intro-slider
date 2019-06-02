@@ -21,7 +21,7 @@ const IntroSlider = ({
   sliderOverlayStyle,
   closeOnOverlayClick,
   sliderStyle,
-  handleClose,
+  handleClose: handeCloseFunction,
   handleDone,
   nextLabel,
   skipLabel,
@@ -32,7 +32,7 @@ const IntroSlider = ({
 }) => {
   const [activeSlide, useActiveSlide] = useState(0);
   const sliderRef = React.createRef();
-
+  const handleClose = handeCloseFunction || (() => {});
   const documentClicked = e => {
     if (
       e.target === sliderRef.current ||
@@ -136,7 +136,7 @@ const IntroSlider = ({
 };
 
 IntroSlider.propTypes = {
-  sliderIsOpen: PropTypes.bool.isRequired,
+  sliderIsOpen: PropTypes.bool,
   descriptionStyle: PropTypes.object,
   titleStyle: PropTypes.object,
   imageStyle: PropTypes.object,
@@ -150,7 +150,7 @@ IntroSlider.propTypes = {
   controllerOrientation: PropTypes.string,
   sliderOverlayStyle: PropTypes.object,
   sliderStyle: PropTypes.object,
-  handleClose: PropTypes.func.isRequired,
+  handleClose: PropTypes.func,
   closeOnOverlayClick: PropTypes.bool,
   controllerIconActiveStyle: PropTypes.object,
   controllerIconInactiveStyle: PropTypes.object,
