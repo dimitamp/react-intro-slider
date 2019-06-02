@@ -55,10 +55,7 @@ Slide.propTypes = {
 Slide.defaultProps = {
   title: "Title",
   image: "",
-  descriptionStyle: {},
-  titleStyle: {},
   description: "Description",
-  imageStyle: {},
   background: "#ffeace",
   active: false
 };

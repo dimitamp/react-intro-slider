@@ -1,4 +1,4 @@
-declare module 'IntroSlider.d.ts' {
+declare module 'IntroSlider' {
   import * as React from 'react';
 
   export interface IntroSliderProps {
@@ -20,9 +20,14 @@ declare module 'IntroSlider.d.ts' {
     closeOnOverlayClick?: boolean;
     controllerIconActiveStyle?: Object;
     controllerIconInactiveStyle?: Object;
+    nextLabel?: string;
+    skipLabel?: string;
+    doneLabel?: string;
+    controllerIconActive?: React.ReactNode;
+    contollerIconInactive?: React.ReactNode;
   }
 
-  const IntroSlider: React.FC<IntroSliderProps>;
+  const IntroSlider: React.SFC<IntroSliderProps>;
 
   export default IntroSlider;
 }

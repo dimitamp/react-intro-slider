@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import { render } from "react-dom";
-import IntroSlider from "../../src/IntroSlider";
+import IntroSlider from "../../dist/IntroSlider";
 
 const App = () => {
   const [sliderIsOpen, setSliderIsOpen] = useState(true);
 
-  const handleDone = () => {
+  const handleClose = () => {
     setSliderIsOpen(false);
   };
 
@@ -38,8 +38,7 @@ const App = () => {
         slides={slides}
         size="large"
         skipButton
-        handleDone={handleDone}
-        handleClose={handleDone}
+        handleClose={handleClose}
       />
       <div
         className="example-view"

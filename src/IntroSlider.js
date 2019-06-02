@@ -69,7 +69,10 @@ const IntroSlider = ({
   const nextSlide = () => {
     const newSlide = activeSlide + 1;
     if (newSlide === slides.length) {
-      handleDone();
+      if (handleDone) {
+        handleDone();
+      }
+      handleClose();
     } else {
       useActiveSlide(newSlide);
     }
@@ -133,7 +136,7 @@ const IntroSlider = ({
 };
 
 IntroSlider.propTypes = {
-  sliderIsOpen: PropTypes.bool,
+  sliderIsOpen: PropTypes.bool.isRequired,
   descriptionStyle: PropTypes.object,
   titleStyle: PropTypes.object,
   imageStyle: PropTypes.object,
@@ -141,7 +144,7 @@ IntroSlider.propTypes = {
   size: PropTypes.string,
   nextButton: PropTypes.bool,
   skipButton: PropTypes.bool,
-  handleDone: PropTypes.func.isRequired,
+  handleDone: PropTypes.func,
   skipButtonStyle: PropTypes.object,
   nextButtonStyle: PropTypes.object,
   controllerOrientation: PropTypes.string,
@@ -164,7 +167,18 @@ IntroSlider.defaultProps = {
   slides: [],
   sliderOverlayStyle: null,
   sliderStyle: null,
-  closeOnOverlayClick: true
+  closeOnOverlayClick: true,
+  activeSlide: 0,
+  nextButton: true,
+  skipButton: false,
+  skipButtonStyle: null,
+  nextButtonStyle: null,
+  orientation: "vertical",
+  controllerIconActiveStyle: null,
+  controllerIconInactiveStyle: null,
+  descriptionStyle: null,
+  titleStyle: null,
+  imageStyle: null
 };
 
 export default IntroSlider;

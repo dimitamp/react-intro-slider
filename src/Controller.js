@@ -126,16 +126,4 @@ Controller.propTypes = {
   controllerIconInactive: PropTypes.node
 };
 
-Controller.defaultProps = {
-  activeSlide: 0,
-  slides: [],
-  nextButton: true,
-  skipButton: false,
-  skipButtonStyle: null,
-  nextButtonStyle: null,
-  orientation: "vertical",
-  controllerIconActiveStyle: null,
-  controllerIconInactiveStyle: null
-};
-
 export default Controller;
