@@ -1,6 +1,7 @@
 src
 examples
 images
+__tests__
 .babelrc
 .gitignore
 webpack.dev.js
