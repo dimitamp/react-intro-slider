@@ -1,6 +1,6 @@
 {
   "name": "react-intro-slider",
-  "version": "1.2.4",
+  "version": "1.2.5",
   "description": "`Simple and configurable app introduction slider for react`",
   "main": "dist/IntroSlider.js",
   "scripts": {
@@ -63,6 +63,7 @@
     "babel-loader": "^7.1.5",
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-3": "^6.24.1",
     "css-loader": "^2.1.1",
     "enzyme": "^3.9.0",
     "enzyme-adapter-react-16": "^1.13.2",

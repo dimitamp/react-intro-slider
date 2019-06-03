@@ -24,6 +24,7 @@ export interface IntroSliderProps {
   doneLabel?: string;
   controllerIconActive?: React.ReactNode;
   contollerIconInactive?: React.ReactNode;
+  slideStyle?: Object;
 }
 
 declare const IntroSlider: React.SFC<IntroSliderProps>;

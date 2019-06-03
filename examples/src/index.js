@@ -39,6 +39,8 @@ const App = () => {
         size="large"
         skipButton
         handleClose={handleClose}
+        sliderStyle={{ borderRadius: "10px" }}
+        slideStyle={{ borderRadius: "10px" }}
       />
       <div
         className="example-view"

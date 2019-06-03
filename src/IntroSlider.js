@@ -28,6 +28,7 @@ const IntroSlider = ({
   doneLabel,
   controllerIconActive,
   controllerIconInactive,
+  slideStyle,
   size
 }) => {
   const [activeSlide, useActiveSlide] = useState(0);
@@ -91,6 +92,7 @@ const IntroSlider = ({
         titleStyle={titleStyle}
         descriptionStyle={descriptionStyle}
         background={background}
+        slideStyle={slideStyle}
       />
     );
   });
@@ -158,7 +160,8 @@ IntroSlider.propTypes = {
   skipLabel: PropTypes.string,
   doneLabel: PropTypes.string,
   controllerIconActive: PropTypes.node,
-  contollerIconInactive: PropTypes.node
+  contollerIconInactive: PropTypes.node,
+  slideStyle: PropTypes.object
 };
 
 IntroSlider.defaultProps = {
@@ -167,6 +170,7 @@ IntroSlider.defaultProps = {
   slides: [],
   sliderOverlayStyle: null,
   sliderStyle: null,
+  slideStyle: null,
   closeOnOverlayClick: true,
   activeSlide: 0,
   nextButton: true,

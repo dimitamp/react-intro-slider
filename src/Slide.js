@@ -10,14 +10,16 @@ const Slide = props => {
     imageStyle,
     titleStyle,
     descriptionStyle,
-    active
+    active,
+    slideStyle
   } = props;
+
   return (
     <div
       className={`ris-slide ${
         active ? "ris-slide-active" : "ris-slide-inactive"
       }`}
-      style={{ background }}
+      style={{ ...slideStyle, background }}
     >
       <div className="ris-slide-title-container">
         <div className="ris-slide-title" style={titleStyle}>
@@ -49,7 +51,8 @@ Slide.propTypes = {
   description: PropTypes.string,
   imageStyle: PropTypes.object,
   background: PropTypes.string,
-  active: PropTypes.bool
+  active: PropTypes.bool,
+  slideStyle: PropTypes.object
 };
 
 Slide.defaultProps = {
