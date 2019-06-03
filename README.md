@@ -42,6 +42,7 @@ npm i react-intro-slider --save
 | controllerActiveIconStyle   | `style`  | `null`   | Style of active pagination dots                                         |
 | controllerInactiveIconStyle | `style`  | `null`   | Style of inactive pagination dots                                       |
 | sliderStyle                 | `style`  | `null`   | Style of slider container                                               |
+| slideStyle                  | `style`  | `null`   | Style of slide                                                          |
 | nextLabel                   | `string` | `NEXT`   | Label of next button                                                    |
 | skipLabel                   | `string` | `SKIP`   | Label of skip button                                                    |
 | doneLabel                   | `string` | `DONE`   | Label of done button                                                    |
