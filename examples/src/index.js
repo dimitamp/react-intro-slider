@@ -26,8 +26,7 @@ const App = () => {
     {
       title: "Still in development",
       background: "#ADD8E6",
-      image:
-        "http://holidaywonders.net/wp-content/uploads/2019/05/unique-cartoon-rocket-ship-clipart-clip-art-bay-inspiration.png",
+      image: "https://www.freeiconspng.com/thumbs/rocket-png/rocket-png-1.png",
       description: "More features will be added!"
     }
   ];
