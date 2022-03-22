@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import "./styles.css";
 import PropTypes from "prop-types";
 import { Swipeable } from "react-swipeable";
@@ -32,15 +32,16 @@ const IntroSlider = ({
   size
 }) => {
   const [activeSlide, useActiveSlide] = useState(0);
-  const sliderRef = React.createRef();
+  const sliderRef = useRef();
   const handleClose = handeCloseFunction || (() => {});
   const documentClicked = e => {
     if (
-      e.target === sliderRef.current ||
-      sliderRef.current.contains(e.target) ||
-      !closeOnOverlayClick
+      sliderRef.current &&
+      (e.target === sliderRef.current || sliderRef.current.contains(e.target))
     )
       return;
+
+    if (!closeOnOverlayClick) return;
     handleClose();
   };
 

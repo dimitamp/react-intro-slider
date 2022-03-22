@@ -1,6 +1,6 @@
 {
   "name": "react-intro-slider",
-  "version": "1.2.6",
+  "version": "1.2.8",
   "description": "`Simple and configurable app introduction slider for react`",
   "main": "dist/IntroSlider.js",
   "scripts": {
